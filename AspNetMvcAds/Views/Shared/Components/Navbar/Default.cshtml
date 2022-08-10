@@ -1,0 +1,46 @@
+﻿@model List<Category>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light navigation">
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                        <img src="~/images/logo1.png" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto main-nav ">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                            </li>
+                            <li class="nav-item dropdown dropdown-slide">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
+                                    Kategoriler<span><i class="fa fa-angle-down"></i></span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    @foreach (Category item in Model)
+                                    {
+                                        <a class="dropdown-item" asp-controller="Category" asp-action="Index" asp-route-cid="@item.Id">
+                                            @item.Name
+                                        </a>
+                                    }
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto mt-10">
+                            <li class="nav-item">
+                                <a class="nav-link login-button" href="/Auth/Login">Giriş yap</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white add-button" href="/Advert/Create"><i class="fa fa-plus-circle"></i> Yeni İlan Ekle</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>

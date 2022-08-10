@@ -1,0 +1,13 @@
+﻿@model HomePageViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<partial name="_HeroArea" model="Model.PopularCategories" />
+
+<partial name="_PopulerDeals" model="Model.TrendingAdverts" />
+
+@await Component.InvokeAsync("AllCategoryList")
+
+<partial name="_CallToAction" />
+
